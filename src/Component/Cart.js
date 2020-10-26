@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BookContext } from "./BookContext";
-import { Table } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 class CartItem extends Component {
@@ -10,13 +9,15 @@ class CartItem extends Component {
     this.context.TotalPrice();
   }
 
+
   render() {
     const { Cart, Total, Increase, Decrease, RemoveProduct } = this.context;
-    if (Cart.length === 0) {
+    if (Cart.length <= 0) {
       return <h1 className="cart-title">Your Shopping Cart is Empty</h1>;
     } else {
       return (
         <>
+		<h1 className='cart'>Your Items</h1>
           {Cart.map((book) => (
             <div class="container mb-4">
               <div class="row">
@@ -48,7 +49,7 @@ class CartItem extends Component {
                               +
                             </button>
                           </td>
-                          <td class="text-right">${book.price* book.count}</td>
+                          <td class="text-right">${book.price * book.count}</td>
                           <td class="text-right">
                             <button
                               class="btn btn-sm btn-danger"
@@ -80,13 +81,13 @@ class CartItem extends Component {
                 </div>
               </div>
               <div class="totals-item totals-item-total">
-                <label>Grand Total{Cart.length}</label>
+                <label>Grand Total</label>
                 <div class="totals-value" id="cart-total">
                   ${Total}
                 </div>
               </div>
             </div>
-            <button class="checkout">Checkout</button>
+           <Link to='/'><button class="checkout" onClick={this.Checkout}>Checkout</button></Link> 
           </div>
         </>
       );

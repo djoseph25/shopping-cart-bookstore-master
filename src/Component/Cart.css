@@ -5,7 +5,12 @@ font-family: 'Permanent Marker', cursive;
 padding-top: 2%;
 text-align: center;
 }
-
+.cart{
+font-family: 'Permanent Marker', cursive;
+padding-top: 5px;
+padding-bottom:1%;
+text-align: center;
+}
 .crop{
     height: 100px;
     width: 100px;
